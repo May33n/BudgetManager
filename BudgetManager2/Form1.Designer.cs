@@ -32,8 +32,9 @@ namespace BudgetManager2
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.pnlContainer = new System.Windows.Forms.Panel();
             this.dgvBudgetEntries = new System.Windows.Forms.DataGridView();
             this.pnlTop.SuspendLayout();
             this.pnlMenu.SuspendLayout();
@@ -43,8 +44,7 @@ namespace BudgetManager2
             // pnlTop
             // 
             this.pnlTop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(208)))), ((int)(((byte)(255)))));
-            this.pnlTop.Controls.Add(this.pnlContainer);
+            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
             this.pnlTop.Controls.Add(this.lblTitle);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
@@ -70,7 +70,9 @@ namespace BudgetManager2
             // pnlMenu
             // 
             this.pnlMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
+            this.pnlMenu.Controls.Add(this.btnEdit);
+            this.pnlMenu.Controls.Add(this.btnDelete);
             this.pnlMenu.Controls.Add(this.btnNew);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenu.Location = new System.Drawing.Point(0, 80);
@@ -78,41 +80,56 @@ namespace BudgetManager2
             this.pnlMenu.Size = new System.Drawing.Size(1045, 50);
             this.pnlMenu.TabIndex = 1;
             // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
+            this.btnEdit.Location = new System.Drawing.Point(154, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 40);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
+            this.btnDelete.Location = new System.Drawing.Point(252, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 40);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnNew
             // 
             this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
-            this.btnNew.Location = new System.Drawing.Point(921, 3);
+            this.btnNew.Location = new System.Drawing.Point(59, 3);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 40);
             this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "button1";
+            this.btnNew.Text = "new";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // pnlContainer
-            // 
-            this.pnlContainer.Location = new System.Drawing.Point(208, 12);
-            this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(112, 129);
-            this.pnlContainer.TabIndex = 2;
             // 
             // dgvBudgetEntries
             // 
             this.dgvBudgetEntries.AllowUserToOrderColumns = true;
+            this.dgvBudgetEntries.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
             this.dgvBudgetEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBudgetEntries.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBudgetEntries.Location = new System.Drawing.Point(0, 130);
+            this.dgvBudgetEntries.Location = new System.Drawing.Point(59, 147);
             this.dgvBudgetEntries.Name = "dgvBudgetEntries";
             this.dgvBudgetEntries.RowHeadersWidth = 62;
             this.dgvBudgetEntries.RowTemplate.Height = 28;
-            this.dgvBudgetEntries.Size = new System.Drawing.Size(1045, 447);
+            this.dgvBudgetEntries.Size = new System.Drawing.Size(937, 382);
             this.dgvBudgetEntries.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1045, 577);
             this.Controls.Add(this.dgvBudgetEntries);
             this.Controls.Add(this.pnlMenu);
@@ -134,8 +151,9 @@ namespace BudgetManager2
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.DataGridView dgvBudgetEntries;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 

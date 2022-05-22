@@ -39,6 +39,8 @@ namespace BudgetManager2
             this.lblNotes = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.dt = new System.Windows.Forms.DateTimePicker();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblId = new System.Windows.Forms.Label();
             this.pnlTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +56,7 @@ namespace BudgetManager2
             // 
             // pnlTop
             // 
+            this.pnlTop.Controls.Add(this.lblId);
             this.pnlTop.Controls.Add(this.lblTitle);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
@@ -64,11 +67,10 @@ namespace BudgetManager2
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(297, 18);
+            this.lblTitle.Location = new System.Drawing.Point(233, 19);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(40, 20);
+            this.lblTitle.Size = new System.Drawing.Size(0, 20);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "New";
             // 
             // txtBoxName
             // 
@@ -137,11 +139,31 @@ namespace BudgetManager2
             this.dt.Size = new System.Drawing.Size(208, 26);
             this.dt.TabIndex = 9;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(450, 367);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "x";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(436, 19);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 20);
+            this.lblId.TabIndex = 1;
+            this.lblId.Visible = false;
+            // 
             // FormNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 447);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dt);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblNotes);
@@ -172,5 +194,7 @@ namespace BudgetManager2
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.DateTimePicker dt;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblId;
     }
 }

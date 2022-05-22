@@ -12,7 +12,6 @@ namespace BudgetManager2
 {
     public partial class Form1 : Form
     {
-        private Form activeForm;
         private readonly BudgetManagerEntities budgetManagerEntities;
 
         public Form1()
@@ -23,17 +22,8 @@ namespace BudgetManager2
 
         private void OpenNewForm(Form newForm, object btnNew)
         {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            activeForm = newForm;
-            newForm.TopLevel = false;
-            newForm.FormBorderStyle = FormBorderStyle.None;
-            newForm.Dock = DockStyle.Fill;
-            this.pnlContainer.Controls.Add(newForm);
-            this.pnlContainer.Tag = newForm;
             newForm.BringToFront();
+            newForm.Parent = Parent;  //??
             newForm.Show();
         }
 
@@ -42,17 +32,45 @@ namespace BudgetManager2
             OpenNewForm(new FormNew(), sender);
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            //get id of selected row
+            var id = (int)dgvBudgetEntries.SelectedRows[0].Cells["id"].Value;
+
+            //query database for record
+            var entry = budgetManagerEntities.BudgetManagers.FirstOrDefault(q => q.id == id);
+
+            //launch FormNew window with data
+            OpenNewForm(new FormNew(entry), sender);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var id = (int)dgvBudgetEntries.SelectedRows[0].Cells["id"].Value;
+            var entry = budgetManagerEntities.BudgetManagers.FirstOrDefault(q => q.id == id);
+
+            //delete entry
+            budgetManagerEntities.BudgetManagers.Remove(entry);
+            budgetManagerEntities.SaveChanges();
+            dgvBudgetEntries.Refresh();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            var entries = budgetManagerEntities.BudgetManagers.Select(q => new
-            {
-                NAME = q.Name,
-                AMOUNT = q.Amount,
-                NOTES = q.Notes,
-                DATE = q.Date
-            }).ToList();
+            var entries = budgetManagerEntities.BudgetManagers
+               .Select(q => new
+               {
+                   NAME = q.Name,
+                   AMOUNT = q.Amount,
+                   NOTES = q.Notes,
+                   DATE = q.Date,
+                   Id = q.id
+
+               })
+               .ToList();
 
             dgvBudgetEntries.DataSource = entries;
+            dgvBudgetEntries.Columns[4].Visible = false;
         }
     }
 }
