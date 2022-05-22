@@ -13,10 +13,12 @@ namespace BudgetManager2
     public partial class Form1 : Form
     {
         private Form activeForm;
+        private readonly BudgetManagerEntities budgetManagerEntities;
 
         public Form1()
         {
             InitializeComponent();
+            budgetManagerEntities = new BudgetManagerEntities();
         }
 
         private void OpenNewForm(Form newForm, object btnNew)
@@ -38,6 +40,19 @@ namespace BudgetManager2
         private void btnNew_Click(object sender, EventArgs e)
         {
             OpenNewForm(new FormNew(), sender);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            var entries = budgetManagerEntities.BudgetManagers.Select(q => new
+            {
+                NAME = q.Name,
+                AMOUNT = q.Amount,
+                NOTES = q.Notes,
+                DATE = q.Date
+            }).ToList();
+
+            dgvBudgetEntries.DataSource = entries;
         }
     }
 }

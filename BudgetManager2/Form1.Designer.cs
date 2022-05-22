@@ -34,19 +34,22 @@ namespace BudgetManager2
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.btnNew = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.dgvBudgetEntries = new System.Windows.Forms.DataGridView();
             this.pnlTop.SuspendLayout();
             this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBudgetEntries)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
             // 
             this.pnlTop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(208)))), ((int)(((byte)(255)))));
+            this.pnlTop.Controls.Add(this.pnlContainer);
             this.pnlTop.Controls.Add(this.lblTitle);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1105, 80);
+            this.pnlTop.Size = new System.Drawing.Size(1045, 80);
             this.pnlTop.TabIndex = 0;
             // 
             // lblTitle
@@ -72,7 +75,7 @@ namespace BudgetManager2
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenu.Location = new System.Drawing.Point(0, 80);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(1105, 50);
+            this.pnlMenu.Size = new System.Drawing.Size(1045, 50);
             this.pnlMenu.TabIndex = 1;
             // 
             // btnNew
@@ -88,25 +91,39 @@ namespace BudgetManager2
             // 
             // pnlContainer
             // 
-            this.pnlContainer.Location = new System.Drawing.Point(263, 136);
+            this.pnlContainer.Location = new System.Drawing.Point(208, 12);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(610, 505);
+            this.pnlContainer.Size = new System.Drawing.Size(112, 129);
             this.pnlContainer.TabIndex = 2;
+            // 
+            // dgvBudgetEntries
+            // 
+            this.dgvBudgetEntries.AllowUserToOrderColumns = true;
+            this.dgvBudgetEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBudgetEntries.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBudgetEntries.Location = new System.Drawing.Point(0, 130);
+            this.dgvBudgetEntries.Name = "dgvBudgetEntries";
+            this.dgvBudgetEntries.RowHeadersWidth = 62;
+            this.dgvBudgetEntries.RowTemplate.Height = 28;
+            this.dgvBudgetEntries.Size = new System.Drawing.Size(1045, 447);
+            this.dgvBudgetEntries.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1105, 697);
-            this.Controls.Add(this.pnlContainer);
+            this.ClientSize = new System.Drawing.Size(1045, 577);
+            this.Controls.Add(this.dgvBudgetEntries);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlTop);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.pnlMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBudgetEntries)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,6 +135,7 @@ namespace BudgetManager2
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Panel pnlContainer;
+        private System.Windows.Forms.DataGridView dgvBudgetEntries;
     }
 }
 
