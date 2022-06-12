@@ -42,6 +42,7 @@ namespace BudgetManager2
             this.lblDate = new System.Windows.Forms.Label();
             this.dt = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@ namespace BudgetManager2
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(9)))), ((int)(((byte)(108)))));
+            this.pnlTop.Controls.Add(this.panel1);
             this.pnlTop.Controls.Add(this.lblId);
             this.pnlTop.Controls.Add(this.lblTitle);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -176,6 +178,15 @@ namespace BudgetManager2
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(50, 50);
+            this.panel1.TabIndex = 2;
+            // 
             // FormNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -220,5 +231,6 @@ namespace BudgetManager2
         private System.Windows.Forms.DateTimePicker dt;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Panel panel1;
     }
 }
